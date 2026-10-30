@@ -8,6 +8,40 @@ Hello! 👋 How can I help you today?
 
 Start here. Every other app in this repo is these 7 lines plus something more.
 
+## Prompt for createing this application with VSCode + Claude Code Extension from Zero
+
+```
+Build a minimal Python app called "The Smallest Agent" in this (empty) folder using the Claude Agent SDK (package: claude-agent-sdk). It's a teaching example for beginners: the first app in a series where each later app adds one feature on top of this one.
+
+## What the app does
+- Sends the prompt "Hello world!" to Claude through the Agent SDK and prints only the final answer to the console.
+- Ignores all the intermediate messages the SDK streams back, and prints just the final result.
+- Uses the SDK defaults (no options): default model and default tools.
+
+## Code requirements
+- One file, agent.py, as short as possible: aim for about 7 lines of real logic. Import only what's needed from the SDK.
+- Use the SDK's simple one-shot API (not the interactive client class), with asyncio.
+- The API key comes from the ANTHROPIC_API_KEY environment variable. Never hard-code it.
+- When the user is also logged in to Claude Code with a claude.ai account, the agent shows a warning at startup: "claude.ai connectors are disabled because ANTHROPIC_API_KEY or another auth source is set". Hide it by turning claude.ai MCP connectors off from inside the script before the agent starts. Keep this as clearly optional (about 2 lines with a short comment), separate from the core logic.
+- requirements.txt lists only the SDK.
+- Add a .gitignore for .venv, __pycache__, and .env.
+
+## README.md (for absolute beginners)
+- Short intro and the expected output.
+- Part 1, configure and run: prerequisites (Python 3.10+, an API key from https://platform.claude.com/), how to get a key and add credits, a warning to treat the key like a password, creating a venv and installing on Windows PowerShell, setting the key (PowerShell and macOS/Linux), running the app.
+- Part 2, how it was built: show the final agent.py and explain it step by step, one snippet per step, in plain language (async, environment variables, what the SDK imports are, the message stream, why only the last message is printed, the optional warning lines). End with a small ASCII diagram of the flow.
+- A cost note: measure what one run costs with the default tools versus with built-in tools turned off, and explain why the difference exists.
+- An "Exercises" section with 4–5 small extensions (change the prompt, print every message type, read the prompt from the command line, reduce cost by turning off the tools, choose a model). Each one gets a hint and a collapsible solution.
+- Make sure every internal link in the README points to a heading that exists.
+
+## Process
+1. Before writing code, check the current claude-agent-sdk documentation for the right function and class names and the options, and use what it says, not what you remember.
+2. Show me the plan first.
+3. After writing the files, create a .venv, install the dependencies, and run the app to check that it prints a greeting. If ANTHROPIC_API_KEY isn't set, tell me how to set it. Don't ask me to paste the key into the chat.
+4. Use the real cost numbers from your runs in the README cost note.
+5. Initialize git and make a first commit, with no .venv and no secrets.
+```
+
 ---
 
 ## Part 1: Configure and run the app
